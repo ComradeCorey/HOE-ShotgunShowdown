@@ -15,8 +15,23 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.velocity = Vector2.right * speed;
+
+        // Getting the rigidbody from the game object we are attached to
+        Rigidbody2D rigidBody = GetComponent<Rigidbody2D>();
+
+        // Number between -1 and 1 based on player pressing left or right
+        float horizontal = Input.GetAxis("Horizontal");
+
+        Debug.Log(horizontal);
+
+        // Cache a local copy of our rigidbody's velocity
+        Vector2 velocity = rigidBody.velocity;
+
+        // Set the x component of the velocity based on input
+        velocity.x = horizontal * speed;
+
+        // Set our rigidbody's velocity based on our local copy
+        rigidBody.velocity = velocity;
     }
 
     public void ApplyDamage(float damageToDeal)
