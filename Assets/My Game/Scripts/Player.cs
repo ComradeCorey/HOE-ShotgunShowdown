@@ -3,10 +3,15 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	// Public variables available in editor
     public string logtext = "Hello world again!";
     public float speed = 2;
     public float jspeed = 50;
     public float health = 10;
+	public int allowedAirJumps = 0;
+
+	// Private variables bot available in editor
+	private int numAirJumps = 0;
 
     // Use this for initialization
     void Start() {
@@ -36,6 +41,20 @@ public class Player : MonoBehaviour {
 
         bool touchingGround = collider.IsTouchingLayers(groundLayer);
 
+		// If touching ground, jumps are reset to 0
+		if (touchingGround)
+		{
+			numAirJumps = 0;
+		}
+		
+		// Jumps only allowed when touching ground
+		bool allowedToJump = touchingGround;
+
+		// If allowed air jumps is higher than the amount of air jumps used, then jump is allowed while in air
+		if (allowedAirJumps > numAirJumps) {
+			allowedToJump = true;
+		}
+
         // Cache a local copy of our rigidbody's velocity
         Vector2 velocity = rigidBody.velocity;
 
@@ -43,30 +62,17 @@ public class Player : MonoBehaviour {
         velocity.x = horizontal * speed;
 
         // Set the y component of the velocity based on input
-        if (jump == true && touchingGround == true)
+        if (jump == true && allowedToJump == true)
         {
             velocity.y = jspeed;
+
+			if (touchingGround != true) {
+				numAirJumps = numAirJumps + 1;
+			}
         }
 
         // Set our rigidbody's velocity based on our local copy
         rigidBody.velocity = velocity;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // Print a log if mouse is pressed
         if(Input.GetMouseButton(0))
