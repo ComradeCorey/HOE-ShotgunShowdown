@@ -61,6 +61,15 @@ public class Player : MonoBehaviour {
         // Set the x component of the velocity based on input
         velocity.x = horizontal * speed;
 
+        // Determine speed for animator
+        float animatorSpeed = Mathf.Abs(velocity.x);
+
+        // Get the animator component
+        Animator animatorComponent = GetComponent<Animator>();
+
+        //Set the speed on the animator
+        animatorComponent.SetFloat("speed", animatorSpeed);
+
         // Set the y component of the velocity based on input
         if (jump == true && allowedToJump == true)
         {
