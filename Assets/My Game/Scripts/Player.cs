@@ -67,8 +67,14 @@ public class Player : MonoBehaviour {
         // Get the animator component
         Animator animatorComponent = GetComponent<Animator>();
 
-        //Set the speed on the animator
+        // Set the speed on the animator
         animatorComponent.SetFloat("speed", animatorSpeed);
+
+        // Get the sprite component from object
+        SpriteRenderer spriteComponent = GetComponent<SpriteRenderer>();
+
+        // Set flip based on x Velocity
+        spriteComponent.flipX = (velocity.x < 0);
 
         // Set the y component of the velocity based on input
         if (jump == true && allowedToJump == true)
