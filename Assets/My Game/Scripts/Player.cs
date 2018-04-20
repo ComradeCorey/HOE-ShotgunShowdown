@@ -9,6 +9,13 @@ public class Player : MonoBehaviour {
     public float jspeed = 50;
     public float health = 10;
 	public int allowedAirJumps = 0;
+	// Every Variable below this is for my shooting code
+	float velX;
+	bool facingRight = true;
+	public GameObject BulletToRight, BulletToLeft;
+	Vector2 bulletPos;
+	public float fireRate = 0 / 5f;
+	float nextFire = 0.0f;
 
 	// Private variables bot available in editor
 	private int numAirJumps = 0;
@@ -84,8 +91,15 @@ public class Player : MonoBehaviour {
 			if (touchingGround != true) {
 				numAirJumps = numAirJumps + 1;
 			}
-        }
 
+		// TRYING TO GET FACING RIGHT WORKING SHOOTING
+			if (velX > 0) {
+				facingRight = true;
+			} else if (velX < 0) {
+				facingRight = false;
+			}
+			
+				
         // Set our rigidbody's velocity based on our local copy
         rigidBody.velocity = velocity;
 
@@ -98,11 +112,27 @@ public class Player : MonoBehaviour {
         // Print a log of the mouse position
         Vector2 mousePosition = Input.mousePosition;
         Debug.Log("Mouse position is " + mousePosition);
-    }
+    	}
 
-    public void ApplyDamage(float damageToDeal)
-    {
-        health = health - damageToDeal;
-    }
+		// This is where I get my player to shoot SHOOTING
+		if (Input.GetButtonDown ("Fire1") && Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+			fire ();
+		}
+	}
+		
+	// This is where I get my character to shoot in the direction he is facing SHOOTING
+	void fire()
+	{
+
+		bulletPos = transform.position;
+		if (facingRight) {
+			bulletPos += Vector2 (+1f, -0, 43f);
+			Instantiate (BulletToRight, bulletPos, Quaternion.identity);
+		} else {
+			bulletPos += Vector2 (-1f, -0, 43f);
+			Instantiate (BulletToLeft, bulletPos, Quaternion.identity);
+		}
+	}
 }
-// Nein

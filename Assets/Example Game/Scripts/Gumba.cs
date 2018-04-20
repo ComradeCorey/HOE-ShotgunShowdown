@@ -3,24 +3,24 @@ using System.Collections;
 
 public class Gumba : MonoBehaviour
 {
-    public float damage = 2;
+ //   public float damage = 2;
 
-    // Use this for initialization
-    void Start()
-    {
+//    // Use this for initialization
+//    void Start()
+//    {
 
-    }
+//    }
 
     // Update is called once per frame
-    void Update()
-    {
+//   void Update()
+//    {
 
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision detected");
+//    }
+ //   //void OnCollisionEnter2D(Collision2D collision)
+ //   {
+        //Debug.Log("Collision detected");
 
-        Player mario = collision.collider.GetComponent<Player>();
-        mario.ApplyDamage(damage);
-    }
+       // Player mario = collision.collider.GetComponent<Player>();
+       // mario.ApplyDamage(damage);
+   // }
 }
