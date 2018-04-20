@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
     public float jspeed = 50;
     public float health = 10;
 	public int allowedAirJumps = 0;
-	// Every Variable below this is for my shooting code
+	// Every Variable below this is for my shooting code SHOOTING
 	float velX;
 	bool facingRight = true;
 	public GameObject BulletToRight, BulletToLeft;
