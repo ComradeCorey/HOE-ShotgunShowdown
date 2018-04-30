@@ -117,10 +117,10 @@ public class Player : MonoBehaviour {
 
 		bulletPos = transform.position;
 		if (facingRight) {
-			bulletPos += new Vector2 (+1f, -0.437f);
+			bulletPos += new Vector2 (+0.5f, -0f);
 			Instantiate (BulletToRight, bulletPos, Quaternion.identity);
 		} else {
-			bulletPos += new Vector2 (-1f, -0.437f);
+			bulletPos += new Vector2 (-0.5f, -0f);
 			Instantiate (BulletToLeft, bulletPos, Quaternion.identity);
 		}
 	}
