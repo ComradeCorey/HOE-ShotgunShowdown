@@ -108,6 +108,8 @@ public class Player : MonoBehaviour {
 		{
 			nextFire = Time.time + fireRate;
 			fire ();
+			AudioSource shoot = GetComponent<AudioSource> ();
+			shoot.Play();
 		}
 	}
 		
