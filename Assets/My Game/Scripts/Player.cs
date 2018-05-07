@@ -124,4 +124,13 @@ public class Player : MonoBehaviour {
 			Instantiate (BulletToLeft, bulletPos, Quaternion.identity);
 		}
 	}
+
+	void OnCollisionEnter2D (Collision2D coll)
+	{
+		if (coll.gameObject.tag.Equals ("Enemies")) 
+		{
+			Destroy (coll.gameObject);
+			Destroy (gameObject);
+		}
+	}
 }
