@@ -125,11 +125,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	// This is where I allow the player to be killed by anything with the enemies tag
 	void OnCollisionEnter2D (Collision2D coll)
 	{
 		if (coll.gameObject.tag.Equals ("Enemies")) 
 		{
-			Destroy (coll.gameObject);
 			Destroy (gameObject);
 		}
 	}

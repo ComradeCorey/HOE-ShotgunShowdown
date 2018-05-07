@@ -35,6 +35,7 @@ public class enemyMovement : MonoBehaviour {
 		}
 	}
 
+	// This is where the enemy dies from colliding with the bullet
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		if (col.gameObject.tag.Equals ("Bullet")) 
