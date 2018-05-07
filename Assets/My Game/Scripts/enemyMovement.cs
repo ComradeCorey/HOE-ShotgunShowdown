@@ -35,11 +35,12 @@ public class enemyMovement : MonoBehaviour {
 		}
 	}
 
-	// This is where the enemy dies from colliding with the bullet
+	// This is where the enemy dies from colliding with the bullet and the player earns cache
 	void OnCollisionEnter2D (Collision2D col)
 	{
 		if (col.gameObject.tag.Equals ("Bullet")) 
 		{
+			scoreScript.scoreValue += 10;
 			Destroy (col.gameObject);
 			Destroy (gameObject);
 		}
