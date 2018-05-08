@@ -19,5 +19,8 @@ public class bulletScript : MonoBehaviour {
 	{
 		rb.velocity = new Vector2 (velX, velY);
 		Destroy (gameObject, 1f);
+
+		// Ignore collision between Collectables and Projectiles
+		Physics2D.IgnoreLayerCollision (10, 9);
 	}
 }

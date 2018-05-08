@@ -33,6 +33,9 @@ public class enemyMovement : MonoBehaviour {
 				movingRight = true;
 			}
 		}
+
+		// Ignore collision between collectable and enemy
+		Physics2D.IgnoreLayerCollision (9, 11);
 	}
 
 	// This is where the enemy dies from colliding with the bullet and the player earns cache
