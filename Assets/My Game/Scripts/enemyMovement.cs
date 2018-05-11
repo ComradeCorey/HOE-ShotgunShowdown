@@ -43,7 +43,7 @@ public class enemyMovement : MonoBehaviour {
 	{
 		if (col.gameObject.tag.Equals ("Bullet")) 
 		{
-			scoreScript.scoreValue += 10;
+			scoreScript.scoreValue += 100;
 			Destroy (col.gameObject);
 			Destroy (gameObject);
 		}

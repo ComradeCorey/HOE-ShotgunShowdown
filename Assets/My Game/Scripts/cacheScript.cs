@@ -14,7 +14,7 @@ public class cacheScript : MonoBehaviour {
 	{
 		if (col.gameObject.tag.Equals ("Player")) 
 		{
-			scoreScript.scoreValue += 5;
+			scoreScript.scoreValue += 50;
 			Destroy (gameObject);
 		}
 	}
