@@ -7,6 +7,7 @@ public class bulletScript : MonoBehaviour {
 	public float velX = 5f;
 	float velY = 0f;
 	Rigidbody2D rb;
+    public float decay;
 
 	// Use this for initialization
 	void Start () 
@@ -18,7 +19,7 @@ public class bulletScript : MonoBehaviour {
 	void Update () 
 	{
 		rb.velocity = new Vector2 (velX, velY);
-		Destroy (gameObject, 1f);
+		Destroy (gameObject, decay);
 
 		// Ignore collision between Collectables and Projectiles
 		Physics2D.IgnoreLayerCollision (10, 9);

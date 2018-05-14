@@ -81,7 +81,8 @@ public class Player : MonoBehaviour {
         SpriteRenderer spriteComponent = GetComponent<SpriteRenderer>();
 
         // Set flip based on x Velocity
-        spriteComponent.flipX = (velocity.x < 0);
+        if (velocity.x != 0)
+            spriteComponent.flipX = (velocity.x < 0);
 		velX = velocity.x;
 
         // Set the y component of the velocity based on input
