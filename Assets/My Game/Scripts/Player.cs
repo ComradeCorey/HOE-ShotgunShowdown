@@ -134,11 +134,16 @@ public class Player : MonoBehaviour {
 		if (coll.gameObject.tag.Equals ("Enemies")) 
 		{
 			Destroy (gameObject);
-		}
+            scoreScript.scoreValue -= scoreScript.scoreValue;
+
+            Application.LoadLevel(Application.loadedLevel);
+        }
 
         if (coll.gameObject.tag.Equals("OutOfBounds"))
         {
             Destroy(gameObject);
+            scoreScript.scoreValue -= scoreScript.scoreValue;
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 }
