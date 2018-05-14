@@ -134,5 +134,10 @@ public class Player : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
-	}
+
+        if (coll.gameObject.tag.Equals("OutOfBounds"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
