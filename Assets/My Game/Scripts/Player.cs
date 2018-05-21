@@ -145,5 +145,10 @@ public class Player : MonoBehaviour {
             scoreScript.scoreValue -= scoreScript.scoreValue;
             Application.LoadLevel(Application.loadedLevel);
         }
+        
+        if(coll.gameObject.tag.Equals("levelEnder"))
+        {
+            Application.LoadLevel("EndScreen");
+        }
     }
 }
